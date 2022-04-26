@@ -39,6 +39,12 @@ namespace StreamingClient
           {
             targetPoint = new IPEndPoint(ipAddress, outboundPortNumber);
           }
+          
+          public void SetIPAddress(string newIPAddress)
+          {
+            ipAddress = IPAddress.Parse(newIPAddress);
+            SetEndpoint();
+          }
 
           public async void SendThing((bool[], UnityEngine.Vector3[], UnityEngine.Quaternion[]) valueTuple)
           {
