@@ -18,32 +18,12 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5583090441070620984
-      m_GuidHigh: 9438782078179841441
+      m_GuidLow: 4901752124546703830
+      m_GuidHigh: 13906135138022412469
     m_SerializedTextureGuid:
-      m_GuidLow: 12467136933007908109
-      m_GuidHigh: 8648575684592797498
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: DSC1401
-    m_Texture: {fileID: 2800000, guid: a216dd0d2afcad043a073c55c3e90578, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 5580774821491550695
-      m_GuidHigh: 12432361029763398272
-    m_SerializedTextureGuid:
-      m_GuidLow: 1262358355770822015
-      m_GuidHigh: 15221581154792985816
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: DSC14012
-    m_Texture: {fileID: 2800000, guid: 7ef74d7fcc3c1184d85437b369eb3dd3, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 4935135226090391248
-      m_GuidHigh: 177318832553686452
-    m_SerializedTextureGuid:
-      m_GuidLow: 288924497207985411
-      m_GuidHigh: 4143232447317295274
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: QRCode
-    m_Texture: {fileID: 2800000, guid: a6fd8503774c0402aa403884f5b77f39, type: 3}
+      m_GuidLow: 5356093184959314009
+      m_GuidHigh: 4821723677956835498
+    m_Size: {x: 0.12, y: 0.12}
+    m_SpecifySize: 1
+    m_Name: DSC_1413_2
+    m_Texture: {fileID: 2800000, guid: b963f859aa5f4a54aa08b5752334ea42, type: 3}
