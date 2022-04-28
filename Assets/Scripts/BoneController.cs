@@ -149,6 +149,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         public void ApplyBodyPose(ARHumanBody body)
         {
+            Debug.Log(m_SkeletonRoot.position);
+
             var joints = body.joints;
             if (!joints.IsCreated)
                 return;
@@ -163,12 +165,22 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 var bone = m_BoneMapping[i];
                 if (bone != null)
                 {
+                    if(i == 0)
+                    {
+                        detections[i] = true;
+                        positions[i] = m_SkeletonRoot.position;
+                        rotations[i] = joint.anchorPose.rotation;
+                    }
+                    else
+                    {
+                        detections[i] = true;
+                        positions[i] = joint.anchorPose.position;
+                        rotations[i] = joint.anchorPose.rotation;
+                    }
                     bone.transform.localPosition = joint.localPose.position;
                     bone.transform.localRotation = joint.localPose.rotation;
 
-                    detections[i] = true;
-                    positions[i] = joint.anchorPose.position;
-                    rotations[i] = joint.anchorPose.rotation;
+                    
                 }
                 else
                 {
