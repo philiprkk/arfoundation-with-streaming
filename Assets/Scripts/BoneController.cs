@@ -169,7 +169,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                     {
                         detections[i] = true;
                         positions[i] = m_SkeletonRoot.position;
-                        rotations[i] = joint.anchorPose.rotation;
+                        rotations[i] = m_SkeletonRoot.rotation;
                     }
                     else
                     {
