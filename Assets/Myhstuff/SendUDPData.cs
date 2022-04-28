@@ -63,7 +63,9 @@ namespace StreamingClient
             {
               poseDetections = poseDetections,
               PosePositions = posePositions, 
-              PoseRotations = poseRotations
+              PoseRotations = poseRotations,
+              TimeStamp =  GetSystemTime(),
+              UserProductID = "ARKitStreamer"
             });
             // count++;
             await udpTransport.Send(packet, targetPoint);
@@ -71,11 +73,11 @@ namespace StreamingClient
 
             // await _udpClient.SendAsync(bytePacket, bytePacket.Length);
           }
-          // private Time GetSystemTime()
-          // {
-          //   double timeInSecs = (double)Stopwatch.GetTimestamp() / Stopwatch.Frequency;
-          //   return new Time(seconds: (float)timeInSecs);
-          // }
+          private float GetSystemTime()
+          {
+            double timeInSecs = (double)Stopwatch.GetTimestamp() / Stopwatch.Frequency;
+            return (float)timeInSecs;
+          }
           
           private void Update()
           {
@@ -116,7 +118,10 @@ namespace StreamingClient
             byte[] detections = GetByteForModule(arKitBodyTrackingFrame.poseDetections);
             byte[] positions = GetByteForModule(arKitBodyTrackingFrame.PosePositions);
             byte[] rotations = GetByteForModule(arKitBodyTrackingFrame.PoseRotations);
-            byte[] all = detections.Concat(positions).Concat(rotations).ToArray();
+            byte[] timeStamp = BitConverter.GetBytes(arKitBodyTrackingFrame.TimeStamp);
+            var bytePacket = Encoding.ASCII.GetBytes(arKitBodyTrackingFrame.UserProductID);
+            
+            byte[] all = detections.Concat(positions).Concat(rotations).Concat(timeStamp).Concat(bytePacket).ToArray();
             
             // ARKitBodyTrackingFrame arKitBodyTrackingFrame2 = CustomSerializer(all);
 
@@ -241,6 +246,8 @@ namespace StreamingClient
           public bool[] poseDetections;
           public Vector3[] PosePositions;
           public Vector4[] PoseRotations;
+          public float TimeStamp;
+          public string UserProductID;
         }
 
     public class SessionReceive
